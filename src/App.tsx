@@ -41,7 +41,7 @@ const AppContent: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-[#FAF8F5] text-stone-900 flex flex-col font-sans selection:bg-emerald-100 selection:text-emerald-900">
+    <div className="min-h-screen bg-[#FAF8F5] dark:bg-[#121214] text-stone-900 dark:text-stone-100 flex flex-col font-sans selection:bg-emerald-100 selection:text-emerald-900 transition-colors">
       {/* Top Banner for Demo State & Persistence */}
       <DemoModeBanner />
 
@@ -54,15 +54,15 @@ const AppContent: React.FC = () => {
       </main>
 
       {/* Footer */}
-      <footer className="mt-auto border-t border-[#E7E2DA] bg-[#F7F3EC]/70 py-6 text-xs text-stone-500">
+      <footer className="mt-auto border-t border-[#E7E2DA] dark:border-stone-800 bg-[#F7F3EC]/70 dark:bg-[#161619]/70 py-6 text-xs text-stone-500 dark:text-stone-400">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-3 text-center sm:text-left">
           <div className="flex items-center space-x-2">
-            <span className="font-serif font-semibold text-stone-800">StudyNest</span>
+            <span className="font-serif font-semibold text-stone-800 dark:text-stone-200">StudyNest</span>
             <span>—</span>
             <span>Product Management 2 Assignment MVP</span>
           </div>
 
-          <div className="flex items-center space-x-4 text-stone-600">
+          <div className="flex items-center space-x-4 text-stone-600 dark:text-stone-400">
             <span>Calm & supportive learning workspace</span>
             <span>•</span>
             <span>Client-side private persistence</span>

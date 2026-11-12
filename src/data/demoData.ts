@@ -1,9 +1,9 @@
 import { Subject, Resource, Note, Task, FlashcardDeck, SelfQuiz, StudentProfile, StudyActivityLog } from '../types';
 
 export const initialProfile: StudentProfile = {
-  name: 'Alex Rivera',
-  email: 'alex.rivera@university.edu',
-  major: 'B.Sc. Cognitive Science & Product Design',
+  name: 'Ayush',
+  email: 'ayush@university.edu',
+  major: 'B.Sc. Cognitive Science & Product Management',
   academicTerm: 'Term 2 (Spring 2027)',
   weeklyTargetHours: 16,
   currentWeeklyHours: 9.5,

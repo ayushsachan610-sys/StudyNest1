@@ -52,18 +52,18 @@ export const DashboardView: React.FC = () => {
   return (
     <div className="space-y-8 animate-in fade-in duration-300 pb-12">
       {/* 1. Welcome & Primary Action Hero */}
-      <section className="bg-gradient-to-r from-[#F4EDE2] via-[#FBF8F3] to-[#EAE3D2] rounded-3xl p-6 sm:p-8 border border-[#E2D8C6] shadow-warm relative overflow-hidden">
+      <section className="bg-gradient-to-r from-[#F4EDE2] via-[#FBF8F3] to-[#EAE3D2] dark:from-[#201E1A] dark:via-[#1A1A1E] dark:to-[#17171A] rounded-3xl p-6 sm:p-8 border border-[#E2D8C6] dark:border-stone-800 shadow-warm relative overflow-hidden transition-colors">
         <div className="relative z-10 max-w-3xl">
-          <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-emerald-100/90 text-emerald-900 border border-emerald-200 text-xs font-semibold mb-3">
-            <Sparkles className="w-3.5 h-3.5 text-emerald-700" />
+          <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-emerald-100/90 dark:bg-emerald-950/70 text-emerald-900 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800 text-xs font-semibold mb-3">
+            <Sparkles className="w-3.5 h-3.5 text-emerald-700 dark:text-emerald-400" />
             <span>Product Promise: Keep your study materials organized and make your next study step clear.</span>
           </div>
 
-          <h1 className="font-serif text-3xl sm:text-4xl font-bold tracking-tight text-stone-900 leading-tight">
+          <h1 className="font-serif text-3xl sm:text-4xl font-bold tracking-tight text-stone-900 dark:text-stone-100 leading-tight">
             {getGreeting()}, {profile.name}.
           </h1>
-          <p className="text-stone-600 text-sm sm:text-base mt-2 leading-relaxed">
-            You have <strong className="font-semibold text-stone-900">{pendingTodayTasks.length} pending tasks</strong> in today’s plan across your active subjects. Take a breath and let’s tackle the next priority.
+          <p className="text-stone-600 dark:text-stone-300 text-sm sm:text-base mt-2 leading-relaxed">
+            You have <strong className="font-semibold text-stone-900 dark:text-stone-100">{pendingTodayTasks.length} pending tasks</strong> in today’s plan across your active subjects. Take a breath and let’s tackle the next priority.
           </p>
 
           <div className="flex flex-wrap items-center gap-3 mt-6">
@@ -77,7 +77,7 @@ export const DashboardView: React.FC = () => {
 
             <button
               onClick={() => setActiveModal('new_task')}
-              className="flex items-center space-x-2 px-4 py-2.5 bg-white hover:bg-stone-50 border border-stone-300/80 text-stone-800 rounded-xl font-medium text-xs shadow-2xs transition-colors"
+              className="flex items-center space-x-2 px-4 py-2.5 bg-white dark:bg-stone-800 hover:bg-stone-50 dark:hover:bg-stone-700 border border-stone-300/80 dark:border-stone-700 text-stone-800 dark:text-stone-200 rounded-xl font-medium text-xs shadow-2xs transition-colors"
             >
               <Plus className="w-4 h-4 text-stone-500" />
               <span>Plan Next Task</span>
@@ -85,7 +85,7 @@ export const DashboardView: React.FC = () => {
 
             <button
               onClick={() => setActiveModal('upload')}
-              className="flex items-center space-x-2 px-4 py-2.5 bg-white hover:bg-stone-50 border border-stone-300/80 text-stone-800 rounded-xl font-medium text-xs shadow-2xs transition-colors"
+              className="flex items-center space-x-2 px-4 py-2.5 bg-white dark:bg-stone-800 hover:bg-stone-50 dark:hover:bg-stone-700 border border-stone-300/80 dark:border-stone-700 text-stone-800 dark:text-stone-200 rounded-xl font-medium text-xs shadow-2xs transition-colors"
             >
               <BookOpen className="w-4 h-4 text-stone-500" />
               <span>Upload Files</span>
@@ -95,67 +95,67 @@ export const DashboardView: React.FC = () => {
 
         {/* Decorative subtle aesthetic graphic */}
         <div className="absolute right-0 top-0 bottom-0 w-1/3 opacity-15 pointer-events-none hidden lg:flex items-center justify-end pr-8">
-          <BookOpen className="w-64 h-64 text-stone-700" />
+          <BookOpen className="w-64 h-64 text-stone-700 dark:text-stone-300" />
         </div>
       </section>
 
       {/* 2. Traceable Metric Cards */}
       <section className="grid grid-cols-2 lg:grid-cols-4 gap-4">
-        <div className="bg-white p-4 rounded-2xl border border-stone-200/80 shadow-2xs">
-          <div className="flex items-center justify-between text-xs text-stone-500 mb-1">
+        <div className="bg-white dark:bg-[#1A1A1E] p-4 rounded-2xl border border-stone-200/80 dark:border-stone-800 shadow-2xs">
+          <div className="flex items-center justify-between text-xs text-stone-500 dark:text-stone-400 mb-1">
             <span>Weekly Study Hours</span>
-            <Clock className="w-4 h-4 text-emerald-600" />
+            <Clock className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
           </div>
           <div className="flex items-baseline space-x-2">
-            <span className="font-serif text-2xl font-bold text-stone-900">{weeklyStudyHours}</span>
+            <span className="font-serif text-2xl font-bold text-stone-900 dark:text-stone-100">{weeklyStudyHours}</span>
             <span className="text-xs text-stone-400 font-medium">/ {profile.weeklyTargetHours} hrs goal</span>
           </div>
-          <div className="w-full bg-stone-100 rounded-full h-1.5 mt-3 overflow-hidden">
+          <div className="w-full bg-stone-100 dark:bg-stone-800 rounded-full h-1.5 mt-3 overflow-hidden">
             <div
-              className="bg-emerald-700 h-1.5 rounded-full transition-all duration-500"
+              className="bg-emerald-700 dark:bg-emerald-500 h-1.5 rounded-full transition-all duration-500"
               style={{ width: `${Math.min(100, (weeklyStudyHours / profile.weeklyTargetHours) * 100)}%` }}
             />
           </div>
         </div>
 
-        <div className="bg-white p-4 rounded-2xl border border-stone-200/80 shadow-2xs">
-          <div className="flex items-center justify-between text-xs text-stone-500 mb-1">
+        <div className="bg-white dark:bg-[#1A1A1E] p-4 rounded-2xl border border-stone-200/80 dark:border-stone-800 shadow-2xs">
+          <div className="flex items-center justify-between text-xs text-stone-500 dark:text-stone-400 mb-1">
             <span>Tasks Completed</span>
-            <FileCheck2 className="w-4 h-4 text-amber-600" />
+            <FileCheck2 className="w-4 h-4 text-amber-600 dark:text-amber-400" />
           </div>
           <div className="flex items-baseline space-x-2">
-            <span className="font-serif text-2xl font-bold text-stone-900">{completedTasksCount}</span>
+            <span className="font-serif text-2xl font-bold text-stone-900 dark:text-stone-100">{completedTasksCount}</span>
             <span className="text-xs text-stone-400 font-medium">tasks total</span>
           </div>
-          <p className="text-[11px] text-stone-500 mt-2">
+          <p className="text-[11px] text-stone-500 dark:text-stone-400 mt-2">
             {completedTodayTasks.length} finished in today’s plan
           </p>
         </div>
 
-        <div className="bg-white p-4 rounded-2xl border border-stone-200/80 shadow-2xs">
-          <div className="flex items-center justify-between text-xs text-stone-500 mb-1">
+        <div className="bg-white dark:bg-[#1A1A1E] p-4 rounded-2xl border border-stone-200/80 dark:border-stone-800 shadow-2xs">
+          <div className="flex items-center justify-between text-xs text-stone-500 dark:text-stone-400 mb-1">
             <span>Flashcards Reviewed</span>
-            <Sparkles className="w-4 h-4 text-indigo-600" />
+            <Sparkles className="w-4 h-4 text-indigo-600 dark:text-indigo-400" />
           </div>
           <div className="flex items-baseline space-x-2">
-            <span className="font-serif text-2xl font-bold text-stone-900">{totalCardsReviewed}</span>
+            <span className="font-serif text-2xl font-bold text-stone-900 dark:text-stone-100">{totalCardsReviewed}</span>
             <span className="text-xs text-stone-400 font-medium">retrieval reps</span>
           </div>
-          <p className="text-[11px] text-stone-500 mt-2">
+          <p className="text-[11px] text-stone-500 dark:text-stone-400 mt-2">
             Active recall retention
           </p>
         </div>
 
-        <div className="bg-white p-4 rounded-2xl border border-stone-200/80 shadow-2xs">
-          <div className="flex items-center justify-between text-xs text-stone-500 mb-1">
+        <div className="bg-white dark:bg-[#1A1A1E] p-4 rounded-2xl border border-stone-200/80 dark:border-stone-800 shadow-2xs">
+          <div className="flex items-center justify-between text-xs text-stone-500 dark:text-stone-400 mb-1">
             <span>Active Subjects</span>
-            <FolderGit2 className="w-4 h-4 text-teal-600" />
+            <FolderGit2 className="w-4 h-4 text-teal-600 dark:text-teal-400" />
           </div>
           <div className="flex items-baseline space-x-2">
-            <span className="font-serif text-2xl font-bold text-stone-900">{subjects.length}</span>
+            <span className="font-serif text-2xl font-bold text-stone-900 dark:text-stone-100">{subjects.length}</span>
             <span className="text-xs text-stone-400 font-medium">notebooks</span>
           </div>
-          <p className="text-[11px] text-stone-500 mt-2">
+          <p className="text-[11px] text-stone-500 dark:text-stone-400 mt-2">
             {profile.academicTerm}
           </p>
         </div>
@@ -166,22 +166,22 @@ export const DashboardView: React.FC = () => {
         {/* Left Column: Today's Plan & Active Subjects (7 cols) */}
         <div className="lg:col-span-7 space-y-8">
           {/* Today's Plan Interactive Checklist */}
-          <div className="bg-white rounded-3xl p-6 border border-stone-200/80 shadow-card">
+          <div className="bg-white dark:bg-[#1A1A1E] rounded-3xl p-6 border border-stone-200/80 dark:border-stone-800 shadow-card">
             <div className="flex items-center justify-between mb-4">
               <div className="flex items-center space-x-2">
-                <div className="p-2 rounded-xl bg-amber-50 text-amber-800">
+                <div className="p-2 rounded-xl bg-amber-50 dark:bg-amber-950/60 text-amber-800 dark:text-amber-300">
                   <Calendar className="w-4 h-4" />
                 </div>
                 <div>
-                  <h2 className="text-base font-serif font-bold text-stone-900">Today’s Plan</h2>
-                  <p className="text-xs text-stone-500">
+                  <h2 className="text-base font-serif font-bold text-stone-900 dark:text-stone-100">Today’s Plan</h2>
+                  <p className="text-xs text-stone-500 dark:text-stone-400">
                     {completedTodayTasks.length} of {todayTasks.length} tasks completed
                   </p>
                 </div>
               </div>
               <button
                 onClick={() => setActiveModal('new_task')}
-                className="flex items-center space-x-1 text-xs font-semibold text-emerald-800 hover:text-emerald-900 px-2.5 py-1 bg-emerald-50 rounded-lg transition-colors"
+                className="flex items-center space-x-1 text-xs font-semibold text-emerald-800 dark:text-emerald-300 hover:text-emerald-900 px-2.5 py-1 bg-emerald-50 dark:bg-emerald-950/60 rounded-lg transition-colors"
               >
                 <Plus className="w-3.5 h-3.5" />
                 <span>Add Task</span>
@@ -190,15 +190,15 @@ export const DashboardView: React.FC = () => {
 
             {/* Checklist items */}
             {todayTasks.length === 0 ? (
-              <div className="text-center py-8 px-4 bg-stone-50/70 rounded-2xl border border-dashed border-stone-200">
+              <div className="text-center py-8 px-4 bg-stone-50/70 dark:bg-stone-800/40 rounded-2xl border border-dashed border-stone-200 dark:border-stone-700">
                 <CheckCircle2 className="w-8 h-8 text-emerald-600 mx-auto mb-2 opacity-80" />
-                <h4 className="text-sm font-semibold text-stone-800">All clear for today!</h4>
-                <p className="text-xs text-stone-500 mt-1 max-w-xs mx-auto">
+                <h4 className="text-sm font-semibold text-stone-800 dark:text-stone-200">All clear for today!</h4>
+                <p className="text-xs text-stone-500 dark:text-stone-400 mt-1 max-w-xs mx-auto">
                   No pending deadlines scheduled for today. Enjoy your rest or plan ahead for tomorrow.
                 </p>
                 <button
                   onClick={() => setActiveModal('new_task')}
-                  className="mt-3 px-3 py-1.5 bg-white border border-stone-300 rounded-lg text-xs font-medium text-stone-700 shadow-2xs"
+                  className="mt-3 px-3 py-1.5 bg-white dark:bg-stone-800 border border-stone-300 dark:border-stone-700 rounded-lg text-xs font-medium text-stone-700 dark:text-stone-200 shadow-2xs"
                 >
                   Schedule a Task
                 </button>
@@ -212,19 +212,19 @@ export const DashboardView: React.FC = () => {
                       key={task.id}
                       className={`group flex items-start space-x-3 p-3.5 rounded-2xl border transition-all ${
                         task.completed
-                          ? 'bg-stone-50/60 border-stone-200/50 opacity-60'
-                          : 'bg-white border-stone-200/90 hover:border-emerald-300 shadow-2xs hover:shadow-xs'
+                          ? 'bg-stone-50/60 dark:bg-stone-900/40 border-stone-200/50 dark:border-stone-800 opacity-60'
+                          : 'bg-white dark:bg-[#202025] border-stone-200/90 dark:border-stone-700/80 hover:border-emerald-300 dark:hover:border-emerald-500 shadow-2xs'
                       }`}
                     >
                       <button
                         onClick={() => toggleTaskComplete(task.id)}
-                        className="mt-0.5 text-stone-400 hover:text-emerald-700 transition-colors shrink-0"
+                        className="mt-0.5 text-stone-400 hover:text-emerald-700 dark:hover:text-emerald-400 transition-colors shrink-0"
                         title={task.completed ? 'Mark incomplete' : 'Mark complete'}
                       >
                         {task.completed ? (
-                          <CheckCircle2 className="w-5 h-5 text-emerald-700 fill-emerald-100" />
+                          <CheckCircle2 className="w-5 h-5 text-emerald-700 dark:text-emerald-400 fill-emerald-100 dark:fill-emerald-950" />
                         ) : (
-                          <Circle className="w-5 h-5 text-stone-400 group-hover:text-emerald-700" />
+                          <Circle className="w-5 h-5 text-stone-400 dark:text-stone-500 group-hover:text-emerald-700 dark:group-hover:text-emerald-400" />
                         )}
                       </button>
 
@@ -232,14 +232,14 @@ export const DashboardView: React.FC = () => {
                         <div className="flex items-center space-x-2">
                           <p
                             className={`text-xs font-medium leading-snug truncate ${
-                              task.completed ? 'line-through text-stone-400' : 'text-stone-900'
+                              task.completed ? 'line-through text-stone-400 dark:text-stone-500' : 'text-stone-900 dark:text-stone-100'
                             }`}
                           >
                             {task.title}
                           </p>
                         </div>
 
-                        <div className="flex items-center space-x-2 mt-1.5 text-[11px] text-stone-500">
+                        <div className="flex items-center space-x-2 mt-1.5 text-[11px] text-stone-500 dark:text-stone-400">
                           {subject && (
                             <span
                               className="font-medium px-1.5 py-0.5 rounded text-[10px]"
@@ -256,7 +256,7 @@ export const DashboardView: React.FC = () => {
                           {task.priority === 'high' && (
                             <>
                               <span>•</span>
-                              <span className="text-rose-700 font-semibold uppercase text-[9px] bg-rose-50 px-1 py-0.2 rounded">
+                              <span className="text-rose-700 dark:text-rose-400 font-semibold uppercase text-[9px] bg-rose-50 dark:bg-rose-950/60 px-1 py-0.2 rounded">
                                 High Priority
                               </span>
                             </>
@@ -274,12 +274,12 @@ export const DashboardView: React.FC = () => {
           <div className="space-y-4">
             <div className="flex items-center justify-between">
               <div>
-                <h2 className="text-base font-serif font-bold text-stone-900">Active Subjects</h2>
-                <p className="text-xs text-stone-500">Your current semester courses and workspaces</p>
+                <h2 className="text-base font-serif font-bold text-stone-900 dark:text-stone-100">Active Subjects</h2>
+                <p className="text-xs text-stone-500 dark:text-stone-400">Your current semester courses and workspaces</p>
               </div>
               <button
                 onClick={() => setActiveTab('subjects')}
-                className="text-xs font-semibold text-emerald-800 hover:text-emerald-900 flex items-center space-x-1"
+                className="text-xs font-semibold text-emerald-800 dark:text-emerald-400 hover:text-emerald-900 flex items-center space-x-1"
               >
                 <span>View All</span>
                 <ArrowRight className="w-3 h-3" />
@@ -291,7 +291,7 @@ export const DashboardView: React.FC = () => {
                 <div
                   key={subject.id}
                   onClick={() => openSubject(subject.id)}
-                  className="group bg-white p-5 rounded-3xl border border-stone-200/80 hover:border-emerald-300 shadow-2xs hover:shadow-card cursor-pointer transition-all flex flex-col justify-between"
+                  className="group bg-white dark:bg-[#1A1A1E] p-5 rounded-3xl border border-stone-200/80 dark:border-stone-800 hover:border-emerald-300 dark:hover:border-emerald-600 shadow-2xs hover:shadow-card cursor-pointer transition-all flex flex-col justify-between"
                 >
                   <div>
                     <div className="flex items-center justify-between mb-3">
@@ -301,27 +301,27 @@ export const DashboardView: React.FC = () => {
                       >
                         {subject.code}
                       </span>
-                      <span className="text-xs font-medium text-stone-400 group-hover:text-stone-700 transition-colors">
+                      <span className="text-xs font-medium text-stone-400 group-hover:text-stone-700 dark:group-hover:text-stone-200 transition-colors">
                         Notebook &rarr;
                       </span>
                     </div>
 
-                    <h3 className="text-sm font-semibold text-stone-900 group-hover:text-emerald-900 transition-colors">
+                    <h3 className="text-sm font-semibold text-stone-900 dark:text-stone-100 group-hover:text-emerald-900 dark:group-hover:text-emerald-400 transition-colors">
                       {subject.name}
                     </h3>
-                    <p className="text-xs text-stone-500 line-clamp-2 mt-1 leading-relaxed">
+                    <p className="text-xs text-stone-500 dark:text-stone-400 line-clamp-2 mt-1 leading-relaxed">
                       {subject.description}
                     </p>
                   </div>
 
-                  <div className="mt-4 pt-3 border-t border-stone-100">
-                    <div className="flex items-center justify-between text-[11px] text-stone-500 mb-1.5">
+                  <div className="mt-4 pt-3 border-t border-stone-100 dark:border-stone-800">
+                    <div className="flex items-center justify-between text-[11px] text-stone-500 dark:text-stone-400 mb-1.5">
                       <span>Weekly Pace</span>
-                      <span className="font-semibold text-stone-700">
+                      <span className="font-semibold text-stone-700 dark:text-stone-300">
                         {subject.completedHoursThisWeek} / {subject.targetHoursPerWeek} hrs
                       </span>
                     </div>
-                    <div className="w-full bg-stone-100 rounded-full h-1.5 overflow-hidden">
+                    <div className="w-full bg-stone-100 dark:bg-stone-800 rounded-full h-1.5 overflow-hidden">
                       <div
                         className="h-1.5 rounded-full transition-all duration-500"
                         style={{
@@ -337,13 +337,13 @@ export const DashboardView: React.FC = () => {
               {/* Add New Subject Card */}
               <div
                 onClick={() => setActiveModal('new_subject')}
-                className="bg-[#FAF8F5] border-2 border-dashed border-stone-300/80 hover:border-emerald-400 rounded-3xl p-5 flex flex-col items-center justify-center text-center cursor-pointer transition-all hover:bg-emerald-50/20 min-h-[160px]"
+                className="bg-[#FAF8F5] dark:bg-[#161619] border-2 border-dashed border-stone-300/80 dark:border-stone-700 hover:border-emerald-400 dark:hover:border-emerald-500 rounded-3xl p-5 flex flex-col items-center justify-center text-center cursor-pointer transition-all hover:bg-emerald-50/20 dark:hover:bg-emerald-950/20 min-h-[160px]"
               >
-                <div className="w-10 h-10 rounded-full bg-white border border-stone-200 flex items-center justify-center text-stone-500 mb-2 shadow-2xs">
+                <div className="w-10 h-10 rounded-full bg-white dark:bg-stone-800 border border-stone-200 dark:border-stone-700 flex items-center justify-center text-stone-500 dark:text-stone-400 mb-2 shadow-2xs">
                   <Plus className="w-5 h-5" />
                 </div>
-                <p className="text-xs font-semibold text-stone-800">Add New Subject</p>
-                <p className="text-[11px] text-stone-500 mt-0.5">Create a dedicated notebook</p>
+                <p className="text-xs font-semibold text-stone-800 dark:text-stone-200">Add New Subject</p>
+                <p className="text-[11px] text-stone-500 dark:text-stone-400 mt-0.5">Create a dedicated notebook</p>
               </div>
             </div>
           </div>
@@ -352,20 +352,20 @@ export const DashboardView: React.FC = () => {
         {/* Right Column: Deadlines, Recent Files & Focus Trigger (5 cols) */}
         <div className="lg:col-span-5 space-y-6">
           {/* Upcoming Deadlines */}
-          <div className="bg-white rounded-3xl p-6 border border-stone-200/80 shadow-card">
+          <div className="bg-white dark:bg-[#1A1A1E] rounded-3xl p-6 border border-stone-200/80 dark:border-stone-800 shadow-card">
             <div className="flex items-center justify-between mb-4">
               <div className="flex items-center space-x-2">
-                <div className="p-2 rounded-xl bg-rose-50 text-rose-800">
+                <div className="p-2 rounded-xl bg-rose-50 dark:bg-rose-950/60 text-rose-800 dark:text-rose-300">
                   <AlertCircle className="w-4 h-4" />
                 </div>
                 <div>
-                  <h2 className="text-base font-serif font-bold text-stone-900">Upcoming Deadlines</h2>
-                  <p className="text-xs text-stone-500">Next 7 days schedule</p>
+                  <h2 className="text-base font-serif font-bold text-stone-900 dark:text-stone-100">Upcoming Deadlines</h2>
+                  <p className="text-xs text-stone-500 dark:text-stone-400">Next 7 days schedule</p>
                 </div>
               </div>
               <button
                 onClick={() => setActiveTab('planner')}
-                className="text-xs font-semibold text-emerald-800 hover:text-emerald-900"
+                className="text-xs font-semibold text-emerald-800 dark:text-emerald-400 hover:text-emerald-900"
               >
                 Full Agenda
               </button>
@@ -381,13 +381,13 @@ export const DashboardView: React.FC = () => {
                   return (
                     <div
                       key={task.id}
-                      className="p-3 rounded-2xl bg-stone-50/70 border border-stone-200/70 flex items-center justify-between"
+                      className="p-3 rounded-2xl bg-stone-50/70 dark:bg-stone-900/50 border border-stone-200/70 dark:border-stone-800 flex items-center justify-between"
                     >
                       <div className="min-w-0 pr-2">
-                        <p className="text-xs font-medium text-stone-900 truncate">
+                        <p className="text-xs font-medium text-stone-900 dark:text-stone-100 truncate">
                           {task.title}
                         </p>
-                        <div className="flex items-center space-x-1.5 text-[10px] text-stone-500 mt-1">
+                        <div className="flex items-center space-x-1.5 text-[10px] text-stone-500 dark:text-stone-400 mt-1">
                           {subject && (
                             <span
                               className="font-medium px-1 rounded"
@@ -404,7 +404,9 @@ export const DashboardView: React.FC = () => {
                       <div className="shrink-0 text-right">
                         <span
                           className={`inline-block px-2 py-0.5 rounded text-[10px] font-semibold ${
-                            isToday ? 'bg-rose-100 text-rose-800' : 'bg-stone-200/70 text-stone-700'
+                            isToday
+                              ? 'bg-rose-100 dark:bg-rose-950/70 text-rose-800 dark:text-rose-300'
+                              : 'bg-stone-200/70 dark:bg-stone-800 text-stone-700 dark:text-stone-300'
                           }`}
                         >
                           {isToday ? 'Due Today' : task.dueDate}
@@ -418,20 +420,20 @@ export const DashboardView: React.FC = () => {
           </div>
 
           {/* Recently Added Resources */}
-          <div className="bg-white rounded-3xl p-6 border border-stone-200/80 shadow-card">
+          <div className="bg-white dark:bg-[#1A1A1E] rounded-3xl p-6 border border-stone-200/80 dark:border-stone-800 shadow-card">
             <div className="flex items-center justify-between mb-4">
               <div className="flex items-center space-x-2">
-                <div className="p-2 rounded-xl bg-teal-50 text-teal-800">
+                <div className="p-2 rounded-xl bg-teal-50 dark:bg-teal-950/60 text-teal-800 dark:text-teal-300">
                   <FileText className="w-4 h-4" />
                 </div>
                 <div>
-                  <h2 className="text-base font-serif font-bold text-stone-900">Recent Materials</h2>
-                  <p className="text-xs text-stone-500">Lecture slides & readings</p>
+                  <h2 className="text-base font-serif font-bold text-stone-900 dark:text-stone-100">Recent Materials</h2>
+                  <p className="text-xs text-stone-500 dark:text-stone-400">Lecture slides & readings</p>
                 </div>
               </div>
               <button
                 onClick={() => setActiveTab('resources')}
-                className="text-xs font-semibold text-emerald-800 hover:text-emerald-900"
+                className="text-xs font-semibold text-emerald-800 dark:text-emerald-400 hover:text-emerald-900"
               >
                 Library
               </button>
@@ -455,22 +457,22 @@ export const DashboardView: React.FC = () => {
                     <div
                       key={res.id}
                       onClick={() => setPreviewResource(res)}
-                      className="group flex items-center justify-between p-2.5 rounded-xl border border-stone-200/70 hover:border-emerald-300 hover:bg-stone-50/50 cursor-pointer transition-all"
+                      className="group flex items-center justify-between p-2.5 rounded-xl border border-stone-200/70 dark:border-stone-800 hover:border-emerald-300 dark:hover:border-emerald-600 hover:bg-stone-50/50 dark:hover:bg-stone-800/50 cursor-pointer transition-all"
                     >
                       <div className="flex items-center space-x-2.5 min-w-0">
-                        <div className="p-1.5 rounded-lg bg-stone-100 text-stone-600 group-hover:bg-emerald-100 group-hover:text-emerald-800 transition-colors">
+                        <div className="p-1.5 rounded-lg bg-stone-100 dark:bg-stone-800 text-stone-600 dark:text-stone-300 group-hover:bg-emerald-100 group-hover:text-emerald-800 transition-colors">
                           <FileText className="w-3.5 h-3.5" />
                         </div>
                         <div className="truncate">
-                          <p className="text-xs font-medium text-stone-900 truncate">
+                          <p className="text-xs font-medium text-stone-900 dark:text-stone-100 truncate">
                             {res.name}
                           </p>
-                          <p className="text-[10px] text-stone-500">
+                          <p className="text-[10px] text-stone-500 dark:text-stone-400">
                             {subject?.code} • {formatBytes(res.size)}
                           </p>
                         </div>
                       </div>
-                      <span className="text-[11px] text-stone-400 group-hover:text-emerald-700 font-medium shrink-0 ml-2">
+                      <span className="text-[11px] text-stone-400 group-hover:text-emerald-700 dark:group-hover:text-emerald-400 font-medium shrink-0 ml-2">
                         Preview
                       </span>
                     </div>

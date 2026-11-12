@@ -36,6 +36,10 @@ interface StudyNestContextType {
   previewResource: Resource | null;
   setPreviewResource: (resource: Resource | null) => void;
 
+  // Theme
+  isDarkMode: boolean;
+  toggleDarkMode: () => void;
+
   // Data Collections
   profile: StudentProfile;
   updateProfile: (profile: Partial<StudentProfile>) => void;
@@ -104,10 +108,42 @@ export const StudyNestProvider: React.FC<{ children: ReactNode }> = ({ children 
   const [activeModal, setActiveModal] = useState<ModalType>('none');
   const [previewResource, setPreviewResource] = useState<Resource | null>(null);
 
+  // Dark Mode Theme State
+  const [isDarkMode, setIsDarkMode] = useState<boolean>(() => {
+    const saved = localStorage.getItem('studynest_dark_mode');
+    if (saved !== null) return saved === 'true';
+    return false;
+  });
+
+  const toggleDarkMode = () => {
+    setIsDarkMode(prev => !prev);
+  };
+
+  useEffect(() => {
+    if (isDarkMode) {
+      document.documentElement.classList.add('dark');
+      localStorage.setItem('studynest_dark_mode', 'true');
+    } else {
+      document.documentElement.classList.remove('dark');
+      localStorage.setItem('studynest_dark_mode', 'false');
+    }
+  }, [isDarkMode]);
+
   // Core Data
   const [profile, setProfile] = useState<StudentProfile>(() => {
     const saved = localStorage.getItem(`${STORAGE_KEY}_profile`);
-    return saved ? JSON.parse(saved) : initialProfile;
+    if (saved) {
+      try {
+        const p = JSON.parse(saved);
+        if (p.name === 'Alex Rivera' || !p.name) {
+          p.name = 'Ayush';
+        }
+        return p;
+      } catch {
+        return initialProfile;
+      }
+    }
+    return initialProfile;
   });
 
   const [subjects, setSubjects] = useState<Subject[]>(() => {
@@ -561,6 +597,8 @@ export const StudyNestProvider: React.FC<{ children: ReactNode }> = ({ children 
         setActiveModal,
         previewResource,
         setPreviewResource,
+        isDarkMode,
+        toggleDarkMode,
         profile,
         updateProfile,
         subjects,
