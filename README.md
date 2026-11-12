@@ -16,7 +16,6 @@ StudyNest is a calm, supportive personal learning companion where students can o
 6. [Product Management Assignment Deliverables](#product-management-assignment-deliverables)
 7. [Local Setup & Running](#local-setup--running)
 8. [Vercel & GitHub Deployment Guide](#vercel--github-deployment-guide)
-9. [How to Present this Assignment (Suggested 5-Minute Demo Flow)](#how-to-present-this-assignment)
 
 ---
 
@@ -184,18 +183,3 @@ git push -u origin main
    - **Output Directory:** `dist`
 4. *(Optional)* If using Supabase, enter `VITE_SUPABASE_URL` and `VITE_SUPABASE_ANON_KEY` under **Environment Variables**.
 5. Click **Deploy**. Your app will be live with an SSL URL (e.g., `https://studynest.vercel.app`).
-
----
-
-## 🎤 How to Present this Assignment
-
-*(Suggested 5-minute presentation flow for class or evaluator walkthrough)*
-
-| Time | Stage | Screen / Action | Key Speaking Points |
-| :--- | :--- | :--- | :--- |
-| **0:00 – 0:45** | **The Problem & Promise** | **Dashboard** | *"Students struggle with fragmented files across Canvas, Drive, and local folders. StudyNest fulfills one clear promise: Keep materials organized and make the next study step clear."* |
-| **0:45 – 1:30** | **Today's Plan & Habit Loop** | **Today's Plan (Checklist)** | Check off a task in Today's Plan. Point out how the weekly hours bar and completed metrics immediately recalculate without fake numbers. |
-| **1:30 – 2:30** | **Subject Notebooks & Ingestion** | **My Subjects ➔ PM-202 Notebook** | Open the *Product Management 2* notebook. Show the tabbed workspace. Click *Upload File* or preview `PM2_Sprint_Discovery_Framework.md` directly in-app. |
-| **2:30 – 3:30** | **Structured Notes & Flashcard Generation** | **Notes ➔ Cornell Lecture Note** | Show the Cornell note with Cues, Notes, and Summary. Click **"Generate Flashcards"** to demonstrate deterministic extraction with source citation. |
-| **3:30 – 4:15** | **Active Recall & Revision** | **Review Suite ➔ Flashcard / Quiz** | Flip a 3D flashcard, rate confidence, and answer a quiz question to showcase instant educational explanations and celebration confetti. |
-| **4:15 – 5:00** | **PM2 Artifacts & Architecture** | **Settings Modal & `product/` Docs** | Highlight the local data sovereignty, Supabase RLS schema, MoSCoW requirements, and 3-horizon roadmap. |
