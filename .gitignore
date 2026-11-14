@@ -31,3 +31,14 @@ dist-ssr
 *.sw?
 
 .vercel
+
+# Android
+.gradle/
+android/.gradle/
+android/build/
+android/app/build/
+android/local.properties
+android/captures/
+android/.idea/
+android/*.iml
+android/app/*.iml

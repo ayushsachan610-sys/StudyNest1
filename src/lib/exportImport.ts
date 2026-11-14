@@ -1,11 +1,13 @@
-import { Subject, Resource, Note, Task, FlashcardDeck, SelfQuiz, StudentProfile, StudyActivityLog } from '../types';
+import { Subject, Resource, Note, Task, FlashcardDeck, SelfQuiz, StudentProfile, StudyActivityLog, VideoResource, Folder } from '../types';
 
 export interface StudyNestBackup {
   version: string;
   exportedAt: string;
   profile: StudentProfile;
   subjects: Subject[];
+  folders?: Folder[];
   resources: Resource[];
+  videos?: VideoResource[];
   notes: Note[];
   tasks: Task[];
   decks: FlashcardDeck[];

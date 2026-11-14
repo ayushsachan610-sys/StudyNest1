@@ -2,6 +2,7 @@ import React from 'react';
 import { X, Download, FileText, Calendar, Tag, HardDrive } from 'lucide-react';
 import { useStudyNest } from '../../context/StudyNestContext';
 import { formatBytes } from '../../lib/fileValidation';
+import { downloadOriginalFile } from '../../lib/downloadHelper';
 
 export const FilePreviewModal: React.FC = () => {
   const { previewResource, setPreviewResource, subjects } = useStudyNest();
@@ -11,15 +12,7 @@ export const FilePreviewModal: React.FC = () => {
   const subject = subjects.find(s => s.id === previewResource.subjectId);
 
   const handleDownload = () => {
-    const blob = new Blob([previewResource.content], { type: 'text/plain;charset=utf-8' });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = previewResource.name;
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-    URL.revokeObjectURL(url);
+    downloadOriginalFile(previewResource);
   };
 
   return (
@@ -82,7 +75,7 @@ export const FilePreviewModal: React.FC = () => {
             <Tag className="w-3.5 h-3.5 text-stone-400" />
             <span className="text-[11px] font-medium text-stone-400">Tags:</span>
             <div className="flex flex-wrap gap-1">
-              {previewResource.tags.map(tag => (
+              {previewResource.tags.map((tag: string) => (
                 <span
                   key={tag}
                   className="px-2 py-0.5 rounded-full bg-white border border-stone-200 text-stone-700 text-[11px]"
